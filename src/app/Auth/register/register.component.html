@@ -1,0 +1,67 @@
+<mat-card class="example-card">
+<form [formGroup]="service.form" class="normal-form">
+    <mat-grid-list cols="2" rowHeight="350px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <input type="hidden" formControlName="$key">
+                <mat-form-field>
+                    <input formControlName="firstName" matInput placeholder="First Name*">
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="lastName" matInput placeholder="Last Name*">
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="email" matInput placeholder="E-Mail ID" type="email">
+                    <mat-error>invalid E-Mail Address.</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="contactNo" matInput placeholder="Contact No.*" type="number">
+                    <mat-error *ngIf="service.form.controls['contactNo'].errors?.required">This field is mandatory.</mat-error>
+                    <mat-error *ngIf="service.form.controls['contactNo'].errors?.minlength">Minimum 10 charactors needed.</mat-error>
+                </mat-form-field>
+                <div class="add-bottom-padding">
+                    <mat-radio-group formControlName="gender">
+                        <mat-radio-button value="1">Male</mat-radio-button>
+                        <mat-radio-button value="2">Female</mat-radio-button>
+                        <mat-radio-button value="3">Other</mat-radio-button>
+                      </mat-radio-group>
+                </div>
+            </div>
+        </mat-grid-tile>
+    
+        <mat-grid-tile>
+            <div class="controles-container">
+                <mat-form-field>
+                    <mat-select formControlName="country" placeholder="Country">
+                      <mat-option>None</mat-option>
+                      <ng-container *ngFor="let country of countries">
+                        <mat-option value="{{country.id}}">{{country.value}}</mat-option>
+                      </ng-container>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <input formControlName="dob" matInput [matDatepicker]="picker" placeholder="Date of Birth">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>  
+
+                  <mat-form-field>
+                    <input formControlName="password" matInput placeholder="Password*" type="password">
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+                  <div class="add-bottom-padding">
+                    <mat-checkbox formControlName="termsCondition">I agree to all terms & condition</mat-checkbox>
+                  </div>
+                  <div class="button-row">
+                     <!-- <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid" (click)="onSubmit()">Submit</button>
+                    <button mat-raised-button color="warn" (click)="onClear()">Clear</button>  -->
+                     <a mat-raised-button  color="primary" type="submit" [disabled]="service.form.invalid" (click)="onSubmit()">Submit</a> 
+                     <a mat-raised-button color="warn" (click)="onClear()">Clear</a>
+                </div>
+            </div>     
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>
+</mat-card>

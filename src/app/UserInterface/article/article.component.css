@@ -1,0 +1,38 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.nav-button {
+      color: white;
+      background-color:rgb(47, 92, 197);
+      margin-left: 10px;
+  }
+
+.wlcm-div {
+  font-style: inherit;
+  font-size: 30px;
+}
+
+.example-card {
+    width: 40%;
+   margin-left: 4%;
+   margin-bottom: 10px;
+   float: left;
+   height: 70vh;
+}
+.example-header-image{
+    height: 180px;
+    width: 280px;
+    margin: 0px 0px 2px 50px;
+}
+.example-source{
+    background-size: cover;
+}
+.title {
+    width: 100%;
+}
+.img-article{
+    height: 250px;
+    width: 60%;
+    margin-left: 20%;
+}

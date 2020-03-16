@@ -1,0 +1,14 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.nav-button {
+      color: white;
+      background-color:rgb(47, 92, 197);
+      margin-left: 10px;
+  }
+
+.wlcm-div {
+  font-style: inherit;
+  font-size: 30px;
+}

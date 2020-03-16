@@ -1,0 +1,22 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.mat-tab {
+  height: 100%;
+}
+.mat-tab-label{
+  text-align: center;
+  margin-right: -40%;
+  margin-left: 36%;
+
+}
+
+.my-tab {
+  text-align: center;
+  margin-right: -40%;
+  margin-left: 36%;
+}
