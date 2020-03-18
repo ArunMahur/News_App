@@ -1,7 +1,18 @@
 .example-card {
-    width:20%;
-    margin-left: 38%;
-    margin-top: 1%;
-    height: 200px;
-    background-color: transparent;
+    width:25%;
+    height: 220px;
+    background-color: rgba(255, 255, 255,1);
+}
+.container{
+  background-image: url("../log-in/images/loginImage.jpg");
+  height: 80vh;
+
+}
+.example-full-width{
+  width: 100%;
+}
+
+.mat-card-actions .mat-button:first-child, .mat-card-actions .mat-raised-button:first-child, .mat-card-actions .mat-stroked-button:first-child {
+  margin-left: 130px;
+  margin-right: 0;
 }

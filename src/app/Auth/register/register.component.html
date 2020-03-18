@@ -1,4 +1,6 @@
-<div class="container" ></div>
+<div class="container"
+     fxLayoutAlign="center center">
+
 <mat-card class="example-card">
 <form [formGroup]="service.form" class="normal-form">
     <mat-grid-list cols="2" rowHeight="350px">
@@ -7,31 +9,34 @@
                 <input type="hidden" formControlName="$key">
                 <mat-form-field>
                     <input formControlName="firstName" matInput placeholder="First Name*">
-                    <mat-error>This field is mandatory.</mat-error>
+                    <mat-error *ngIf="service.form.controls['firstName'].errors?.required">This field is mandatory.</mat-error>
+                    <mat-error *ngIf="service.form.controls['firstName'].errors?.pattern">Enter valid Name</mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <input formControlName="lastName" matInput placeholder="Last Name*">
-                    <mat-error>This field is mandatory.</mat-error>
+                    <mat-error *ngIf="service.form.controls['lastName'].errors?.required">This field is mandatory.</mat-error>
+                    <mat-error *ngIf="service.form.controls['lastName'].errors?.pattern">Enter valid Name</mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <input formControlName="email" matInput placeholder="E-Mail ID" type="email">
-                    <mat-error>invalid E-Mail Address.</mat-error>
+                    <mat-error>Invalid E-Mail Address.</mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <input formControlName="contactNo" matInput placeholder="Contact No.*" type="number">
+                    <input formControlName="contactNo" matInput placeholder="Contact No.*" type="text">
                     <mat-error *ngIf="service.form.controls['contactNo'].errors?.required">This field is mandatory.</mat-error>
-                    <mat-error *ngIf="service.form.controls['contactNo'].errors?.minlength">Minimum 10 charactors needed.</mat-error>
+                    <mat-error *ngIf="service.form.controls['contactNo'].errors?.pattern">Invalid Mobile Number</mat-error>
                 </mat-form-field>
                 <div class="add-bottom-padding">
-                    <mat-radio-group formControlName="gender">
-                        <mat-radio-button value="1">Male</mat-radio-button>
-                        <mat-radio-button value="2">Female</mat-radio-button>
-                        <mat-radio-button value="3">Other</mat-radio-button>
+                  <mat-label  class="group">Gender:</mat-label>
+                    <mat-radio-group formControlName="gender" class="radio-group">
+                        <mat-radio-button value="1" class="radio-button">Male</mat-radio-button>
+                        <mat-radio-button value="2" class="radio-button">Female</mat-radio-button>
+                        <mat-radio-button value="3" class="radio-button">Other</mat-radio-button>
                       </mat-radio-group>
                 </div>
             </div>
         </mat-grid-tile>
-    
+
         <mat-grid-tile>
             <div class="controles-container">
                 <mat-form-field>
@@ -46,23 +51,25 @@
                       <input formControlName="dob" matInput [matDatepicker]="picker" placeholder="Date of Birth">
                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                       <mat-datepicker #picker></mat-datepicker>
-                  </mat-form-field>  
+                  </mat-form-field>
 
                   <mat-form-field>
                     <input formControlName="password" matInput placeholder="Password*" type="password">
-                    <mat-error>This field is mandatory.</mat-error>
+                    <mat-error *ngIf="service.form.controls['password'].errors?.required">This field is mandatory.</mat-error>
+                    <mat-error *ngIf="service.form.controls['password'].errors?.pattern">Enter valid and strong password</mat-error>
                 </mat-form-field>
                   <div class="add-bottom-padding">
-                    <mat-checkbox formControlName="termsCondition">I agree to all terms & condition</mat-checkbox>
+                    <mat-checkbox (change)="changeCheck($event)">I agree to all terms & condition</mat-checkbox>
                   </div>
                   <div class="button-row">
                      <!-- <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid" (click)="onSubmit()">Submit</button>
                     <button mat-raised-button color="warn" (click)="onClear()">Clear</button>  -->
-                     <a mat-raised-button  color="primary" type="submit" [disabled]="service.form.invalid" (click)="onSubmit()">Submit</a> 
-                     <a mat-raised-button color="warn" (click)="onClear()">Clear</a>
+                     <button mat-raised-button  color="primary" type="submit" [disabled]="service.form.invalid || disabledAgreement" (click)="onSubmit()" class="submit-button">Submit</button>
+                     <button mat-raised-button color="primary" (click)="onClear()" class="clear-button">Clear</button>
                 </div>
-            </div>     
+            </div>
         </mat-grid-tile>
     </mat-grid-list>
 </form>
 </mat-card>
+</div>

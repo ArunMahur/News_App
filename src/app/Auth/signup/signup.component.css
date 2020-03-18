@@ -5,9 +5,9 @@
 .example-spacer {
   flex: 1 1 auto;
 }
-.mat-tab {
+/* .mat-tab {
   height: 100%;
-}
+} */
 .mat-tab-label{
   text-align: center;
   margin-right: -40%;
@@ -15,8 +15,8 @@
 
 }
 
-.my-tab {
+/* .my-tab {
   text-align: center;
   margin-right: -40%;
   margin-left: 36%;
-}
+} */

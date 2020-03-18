@@ -19,7 +19,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { NewsApiService } from './news-api.service';
 import { MatListModule } from '@angular/material/list';
-import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule,RoutingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,7 +29,7 @@ import { SignupComponent } from './Auth/signup/signup.component';
 import { FormsService } from './forms.service';
 import { DashboardComponent } from './UserInterface/dashboard/dashboard.component';
 import { ArticleComponent } from './UserInterface/article/article.component';
-import { FooterComponent } from './Auth/footer/footer.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -40,8 +39,7 @@ import { FooterComponent } from './Auth/footer/footer.component';
     SignupComponent,
     DashboardComponent,
     RoutingComponents,
-    ArticleComponent,
-    FooterComponent
+    ArticleComponent
   ],
   imports: [
     MatTabsModule,
@@ -65,7 +63,7 @@ import { FooterComponent } from './Auth/footer/footer.component';
     MatMenuModule,
     HttpClientModule,
     MatListModule,
-    MatTableModule
+    FlexLayoutModule
   ],
   providers: [ FormsService ,  NewsApiService],
   bootstrap: [AppComponent]

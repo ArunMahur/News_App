@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsService } from '/home/arun/Desktop/NewsApp/src/app/forms.service';
+import { FormsService } from '/home/kirti/Documents/news/NewsApp/NewsApp/src/app/forms.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,14 +9,22 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(public service : FormsService, private router : Router) { }
+  disabledAgreement: boolean = true;
+  changeCheck(event) {
+    this.disabledAgreement = !event.checked;
+  }
+
+  constructor(public service : FormsService, private router : Router ) { }
 
   countries =[
-    { id: 1, value:'India' },
-    { id: 2, value:'Turkey' },
-    { id: 3, value:'Nepal' },
-    { id: 4, value:'Bangkok' },
-    { id: 5, value:'Thailand' }
+    { id: 1, value:'Afghanistan' },
+    { id: 2, value:'Albania' },
+    { id: 3, value:'Algeria' },
+    { id: 4, value:'American Samoa' },
+    { id: 5, value:'Andorra' },
+    { id: 6, value: 'Angola'},
+
+
   ]
   ngOnInit() {
   }
