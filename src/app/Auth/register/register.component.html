@@ -40,7 +40,7 @@
         <mat-grid-tile>
             <div class="controles-container">
                 <mat-form-field>
-                    <mat-select formControlName="country" placeholder="Country">
+                    <mat-select formControlName="country" placeholder="Country" class="contry-container">
                       <mat-option>None</mat-option>
                       <ng-container *ngFor="let country of countries">
                         <mat-option value="{{country.id}}">{{country.value}}</mat-option>
@@ -48,13 +48,13 @@
                     </mat-select>
                   </mat-form-field>
                   <mat-form-field>
-                      <input formControlName="dob" matInput [matDatepicker]="picker" placeholder="Date of Birth">
+                      <input formControlName="dob" matInput [matDatepicker]="picker" placeholder="Date of Birth" class="dob-input">
                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                       <mat-datepicker #picker></mat-datepicker>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input formControlName="password" matInput placeholder="Password*" type="password">
+                    <input formControlName="password" matInput placeholder="Password*" type="password" class="pass-input">
                     <mat-error *ngIf="service.form.controls['password'].errors?.required">This field is mandatory.</mat-error>
                     <mat-error *ngIf="service.form.controls['password'].errors?.pattern">Enter valid and strong password</mat-error>
                 </mat-form-field>

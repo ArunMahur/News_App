@@ -22,7 +22,7 @@ form.normal-form {
 
 .add-bottom-padding {
         padding-bottom: 10px;
-        margin-top: 14px ;
+        margin-top: 28px ;
 }
 mat-radio-group mat-radio-group {
     margin-left: 5px;
@@ -52,4 +52,17 @@ mat-radio-group mat-radio-group {
 .clear-button {
   margin-left: 35px;
   align-items: center;
+}
+.button-row {
+  margin-top: 10px;
+}
+.pass-input {
+  margin-top: 3px;
+}
+
+.dob-input {
+  margin-top: 3px;
+}
+.contry-container {
+ margin-bottom: 5px;
 }

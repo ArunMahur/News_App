@@ -26,6 +26,7 @@ import { RegisterComponent } from './Auth/register/register.component';
 import { LogInComponent } from './Auth/log-in/log-in.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './Auth/signup/signup.component';
+import { FooterComponent } from './Auth/footer/footer.component';
 import { FormsService } from './forms.service';
 import { DashboardComponent } from './UserInterface/dashboard/dashboard.component';
 import { ArticleComponent } from './UserInterface/article/article.component';
@@ -37,6 +38,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RegisterComponent,
     LogInComponent,
     SignupComponent,
+    FooterComponent,
     DashboardComponent,
     RoutingComponents,
     ArticleComponent

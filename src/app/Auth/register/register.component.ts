@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsService } from '/home/kirti/Documents/news/NewsApp/NewsApp/src/app/forms.service';
+import { FormsService } from '../../forms.service';
 import { Router } from '@angular/router';
 
 @Component({
