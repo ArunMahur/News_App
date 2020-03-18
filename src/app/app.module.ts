@@ -19,6 +19,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { NewsApiService } from './news-api.service';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule,RoutingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +30,7 @@ import { SignupComponent } from './Auth/signup/signup.component';
 import { FormsService } from './forms.service';
 import { DashboardComponent } from './UserInterface/dashboard/dashboard.component';
 import { ArticleComponent } from './UserInterface/article/article.component';
+import { FooterComponent } from './Auth/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { ArticleComponent } from './UserInterface/article/article.component';
     SignupComponent,
     DashboardComponent,
     RoutingComponents,
-    ArticleComponent
+    ArticleComponent,
+    FooterComponent
   ],
   imports: [
     MatTabsModule,
@@ -61,7 +64,8 @@ import { ArticleComponent } from './UserInterface/article/article.component';
     MatProgressSpinnerModule,
     MatMenuModule,
     HttpClientModule,
-    MatListModule
+    MatListModule,
+    MatTableModule
   ],
   providers: [ FormsService ,  NewsApiService],
   bootstrap: [AppComponent]

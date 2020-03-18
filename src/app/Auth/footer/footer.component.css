@@ -1,0 +1,14 @@
+.div-footer {
+  margin-left: 65px;
+  margin-top: 18px;
+  padding-left: 100px;
+}
+
+.main-div {
+    display: flex;
+    text-align: center;
+}
+.footer {
+    color: white;
+    background-color:#3f51bf;
+}
