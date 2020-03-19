@@ -1,6 +1,14 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <span>NewsApp </span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Profile</button>
+            <button mat-menu-item>Contact Us</button>
+            <button mat-menu-item routerLink="/signup">SignOut</button>
+        </mat-menu>
+        <span>News-App </span>
         <span class="example-spacer"></span>
 
         <a mat-raised-button routerLink="." class="nav-button">HOME</a>
@@ -9,13 +17,76 @@
         <a mat-raised-button routerLink="." class="nav-button">MUSIC</a>
         <a mat-raised-button routerLink="/article" class="nav-button"> Article</a>
         <a mat-raised-button routerLink="." class="nav-button">WHEATHER</a>
-        <a mat-raised-button routerLink="/signup" class="nav-button">LOGOUT</a>
+        <a mat-raised-button routerLink="/signup" class="nav-button">LOGIN</a>
     </mat-toolbar-row>
 </mat-toolbar>
-<mat-card class="main-mat-card">
-    <p class="wlcm-div">Welcome to NewApp</p>
-    <!-- <div ng-app ng-controller="Ctrl"> // this div will be used to display for the current date
-        {{date | date:'yyyy-MM-dd'}}
-    </div> -->
 
-</mat-card>
+<mat-list class="list-nav">
+  <th class="header-padding">
+      Top Trending
+  </th>
+  <tr>
+    <div>
+      <a routerLink="/signup">
+      <mat-card class="example-card" *ngFor="let article of mArticles">
+          <mat-card-header>
+              <mat-card-title class="title">{{article.title}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image class="img-article" src={{article.urlToImage}} alt="">
+          <mat-card-content>
+              <p>
+                  {{article.description}}
+              </p>
+          </mat-card-content>
+      </mat-card>
+    </a>
+  </div>
+    </tr>
+</mat-list>
+
+
+<mat-list class="list-nav">
+  <th class="header-padding">
+      From Sports
+  </th>
+  <tr>
+    <div>
+      <a routerLink="/signup">
+      <mat-card class="example-card" *ngFor="let article of sports">
+          <mat-card-header>
+              <mat-card-title class="title">{{article.title}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image class="img-article" src={{article.urlToImage}} alt="">
+          <mat-card-content>
+              <p>
+                  {{article.description}}
+              </p>
+          </mat-card-content>
+      </mat-card>
+    </a>
+  </div>
+    </tr>
+</mat-list>
+
+<mat-list class="list-nav">
+  <th class="header-padding">
+    From India
+  </th>
+  <tr>
+    <div>
+      <a routerLink="/signup">
+      <mat-card class="example-card" *ngFor="let article of india">
+          <mat-card-header>
+              <mat-card-title class="title">{{article.title}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image class="img-article" src={{article.urlToImage}} alt="">
+          <mat-card-content>
+              <p>
+                  {{article.description}}
+              </p>
+          </mat-card-content>
+      </mat-card>
+    </a>
+  </div>
+    </tr>
+</mat-list>
