@@ -1,3 +1,4 @@
+
 <div class="container"
      fxLayoutAlign="center center">
 
@@ -18,8 +19,9 @@
                     <mat-error *ngIf="service.form.controls['lastName'].errors?.pattern">Enter valid Name</mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <input formControlName="email" matInput placeholder="E-Mail ID" type="email">
-                    <mat-error>Invalid E-Mail Address.</mat-error>
+                    <input formControlName="email" matInput placeholder="E-Mail ID*" type="text">
+                    <mat-error *ngIf="service.form.controls['email'].errors?.required">This field is mandatory.</mat-error>
+                    <mat-error *ngIf="service.form.controls['email'].errors?.pattern">Invalid Email Address</mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <input formControlName="contactNo" matInput placeholder="Contact No.*" type="text">
@@ -43,12 +45,12 @@
                     <mat-select formControlName="country" placeholder="Country" class="contry-container">
                       <mat-option>None</mat-option>
                       <ng-container *ngFor="let country of countries">
-                        <mat-option value="{{country.id}}">{{country.value}}</mat-option>
+                        <mat-option value="{{country}}">{{country}}</mat-option>
                       </ng-container>
                     </mat-select>
                   </mat-form-field>
                   <mat-form-field>
-                      <input formControlName="dob" matInput [matDatepicker]="picker" placeholder="Date of Birth" class="dob-input">
+                      <input formControlName="dob" matInput [matDatepicker]="picker" [max]="getToday()" placeholder="Date of Birth" class="dob-input">
                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                       <mat-datepicker #picker></mat-datepicker>
                   </mat-form-field>
@@ -59,7 +61,8 @@
                     <mat-error *ngIf="service.form.controls['password'].errors?.pattern">Enter valid and strong password</mat-error>
                 </mat-form-field>
                   <div class="add-bottom-padding">
-                    <mat-checkbox (change)="changeCheck($event)">I agree to all terms & condition</mat-checkbox>
+                    <mat-checkbox (change)="changeCheck($event)">I agree to</mat-checkbox>
+                    <a href="https://www.website.com/terms-and-conditions/">Trems And Conditions</a>
                   </div>
                   <div class="button-row">
                      <!-- <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid" (click)="onSubmit()">Submit</button>

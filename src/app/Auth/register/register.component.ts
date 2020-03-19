@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsService } from '../../forms.service';
 import { Router } from '@angular/router';
+import { CountriesService } from '../../countries.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-register',
@@ -14,26 +16,33 @@ export class RegisterComponent implements OnInit {
     this.disabledAgreement = !event.checked;
   }
 
-  constructor(public service : FormsService, private router : Router ) { }
+  countries = [];
+  getToday(): string {
+    return new Date().toISOString().split('T')[0]
+ }
 
-  countries =[
-    { id: 1, value:'Afghanistan' },
-    { id: 2, value:'Albania' },
-    { id: 3, value:'Algeria' },
-    { id: 4, value:'American Samoa' },
-    { id: 5, value:'Andorra' },
-    { id: 6, value: 'Angola'},
+  constructor(public service : FormsService, private router : Router, private country: CountriesService ) { }
 
-
-  ]
   ngOnInit() {
+    this.country.getCountries().subscribe(val => {
+     for (let value in val){
+        this.countries.push(val[value].name);
+}
+  } );
+
   }
 
   onClear() {
-    this.service.form.reset();
-    this.service.initializeFormGroup();
+      $(':input', '.normal-form')
+      .not(':button, :submit, :reset, :hidden')
+      .val('')
+      .removeAttr('checked')
+      .removeAttr('selected');
+
   }
   onSubmit() {
-    this.router.navigate(["/dashboard"]);
+    this.router.navigate(['/dashboard']);
   }
+
+
 }
