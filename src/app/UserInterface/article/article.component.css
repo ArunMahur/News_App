@@ -18,7 +18,7 @@
    margin-left: 4%;
    margin-bottom: 10px;
    float: left;
-   height: 70vh;
+   height: 80vh;
 }
 .example-header-image{
     height: 180px;
@@ -35,4 +35,13 @@
     height: 250px;
     width: 60%;
     margin-left: 20%;
+}
+
+.article-discription {
+  line-height: 13px;
+  overflow: hidden;
+
+}
+p{
+  font-size: small;
 }
