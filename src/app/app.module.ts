@@ -32,6 +32,7 @@ import { DashboardComponent } from './UserInterface/dashboard/dashboard.componen
 import { ArticleComponent } from './UserInterface/article/article.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './UserInterface/home/home.component';
+import { SportsComponent } from './UserInterface/sports/sports.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { HomeComponent } from './UserInterface/home/home.component';
     DashboardComponent,
     RoutingComponents,
     ArticleComponent,
-    HomeComponent
+    HomeComponent,
+    SportsComponent
   ],
   imports: [
     MatTabsModule,
