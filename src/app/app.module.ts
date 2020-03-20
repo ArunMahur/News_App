@@ -31,6 +31,7 @@ import { FormsService } from './forms.service';
 import { DashboardComponent } from './UserInterface/dashboard/dashboard.component';
 import { ArticleComponent } from './UserInterface/article/article.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HomeComponent } from './UserInterface/home/home.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FooterComponent,
     DashboardComponent,
     RoutingComponents,
-    ArticleComponent
+    ArticleComponent,
+    HomeComponent
   ],
   imports: [
     MatTabsModule,

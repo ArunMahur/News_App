@@ -11,10 +11,9 @@
         <span>News-App </span>
         <span class="example-spacer"></span>
 
-        <a mat-raised-button routerLink="." class="nav-button">HOME</a>
-        <a mat-raised-button routerLink="." class="nav-button">NEWS</a>
+        <a mat-raised-button routerLink="/home" class="nav-button">HOME</a>
+        <a mat-raised-button routerLink="." class="nav-button">SAVED NEWS</a>
         <a mat-raised-button routerLink="." class="nav-button">SPORTS</a>
-        <a mat-raised-button routerLink="." class="nav-button">MUSIC</a>
         <button mat-raised-button class="nav-button" [matMenuTriggerFor]="menu2">SOURCES</button>
 
         <mat-menu #menu2="matMenu">
@@ -32,6 +31,7 @@
         <a mat-raised-button routerLink="/signup" class="nav-button">LOGIN</a>
     </mat-toolbar-row>
 </mat-toolbar>
+
 <mat-list class="list-nav">
     <div>
         <mat-card class="example-card" *ngFor="let article of mArticles">

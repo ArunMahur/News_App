@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
 
   }
   onSubmit() {
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/home']);
   }
 
 

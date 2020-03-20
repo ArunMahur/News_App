@@ -5,15 +5,16 @@ import { LogInComponent } from './Auth/log-in/log-in.component';
 import { DashboardComponent } from './UserInterface/dashboard/dashboard.component';
 import { SignupComponent } from './Auth/signup/signup.component';
 import { ArticleComponent } from './UserInterface/article/article.component';
-
+import { HomeComponent } from './UserInterface/home/home.component';
 
 const routes: Routes = [
-  { path : '' , component :  SignupComponent },
+  { path : '' , component : DashboardComponent },
   { path : 'signup' , component :  SignupComponent },
   { path : 'register' , component : RegisterComponent },
   { path : 'login' , component : LogInComponent },
   { path : 'dashboard' , component: DashboardComponent},
-  { path : 'article', component: ArticleComponent}
+  { path : 'article', component: ArticleComponent},
+  { path : 'home', component: HomeComponent}
 
 ];
 
@@ -22,4 +23,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const RoutingComponents = [ SignupComponent,RegisterComponent,LogInComponent,DashboardComponent,ArticleComponent ]
+export const RoutingComponents = [ HomeComponent,SignupComponent,RegisterComponent,LogInComponent,DashboardComponent,ArticleComponent ]

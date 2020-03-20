@@ -17,7 +17,7 @@ export class LogInComponent implements OnInit {
 
   login(): void {
     if (this.username == 'arun' && this.password == 'pass') {
-      this.router.navigate(["/dashboard"]);
+      this.router.navigate(["/home"]);
     } else {
       alert("Invalid credentials");
     }
