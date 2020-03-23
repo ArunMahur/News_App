@@ -17,8 +17,10 @@ import { FormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientJsonpModule } from '@angular/common/http';
 import { NewsApiService } from './news-api.service';
 import { MatListModule } from '@angular/material/list';
+import { ApixuService } from "./apixu.service";
 
 import { AppRoutingModule,RoutingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +35,7 @@ import { ArticleComponent } from './UserInterface/article/article.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './UserInterface/home/home.component';
 import { SportsComponent } from './UserInterface/sports/sports.component';
+import { WheatherComponent } from './UserInterface/wheather/wheather.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import { SportsComponent } from './UserInterface/sports/sports.component';
     RoutingComponents,
     ArticleComponent,
     HomeComponent,
-    SportsComponent
+    SportsComponent,
+    WheatherComponent
   ],
   imports: [
     MatTabsModule,
@@ -68,10 +72,11 @@ import { SportsComponent } from './UserInterface/sports/sports.component';
     MatProgressSpinnerModule,
     MatMenuModule,
     HttpClientModule,
+    HttpClientJsonpModule,
     MatListModule,
     FlexLayoutModule
   ],
-  providers: [ FormsService ,  NewsApiService],
+  providers: [ FormsService ,  NewsApiService, ApixuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

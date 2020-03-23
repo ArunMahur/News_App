@@ -61,12 +61,10 @@
                     <mat-error *ngIf="service.form.controls['password'].errors?.pattern">Enter valid and strong password</mat-error>
                 </mat-form-field>
                   <div class="add-bottom-padding">
-                    <mat-checkbox (change)="changeCheck($event)">I agree to</mat-checkbox>
-                    <a href="https://www.website.com/terms-and-conditions/">Trems And Conditions</a>
+                    <mat-checkbox (change)="changeCheck($event)">I agree to  </mat-checkbox>
+                    <a href="https://www.website.com/terms-and-conditions/">  Terms And Conditions</a>
                   </div>
                   <div class="button-row">
-                     <!-- <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid" (click)="onSubmit()">Submit</button>
-                    <button mat-raised-button color="warn" (click)="onClear()">Clear</button>  -->
                      <button mat-raised-button  color="primary" type="submit" [disabled]="service.form.invalid || disabledAgreement" (click)="onSubmit()" class="submit-button">Submit</button>
                      <button mat-raised-button color="primary" (click)="onClear()" class="clear-button">Clear</button>
                 </div>
