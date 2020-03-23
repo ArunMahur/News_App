@@ -1,6 +1,6 @@
 .example-card {
-    width:25%;
-    height: 220px;
+    width:30%;
+    height: 250px;
     background-color: rgba(255, 255, 255,1);
 }
 .container{
@@ -15,4 +15,11 @@
 .mat-card-actions .mat-button:first-child, .mat-card-actions .mat-raised-button:first-child, .mat-card-actions .mat-stroked-button:first-child {
   margin-left: 130px;
   margin-right: 0;
+}
+button{
+  margin: auto;
+}
+
+mat-card-title{
+  margin-left: 100px;
 }
