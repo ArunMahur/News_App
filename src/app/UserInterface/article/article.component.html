@@ -9,7 +9,7 @@
         <button mat-raised-button class="nav-button" [matMenuTriggerFor]="menu2">SOURCES</button>
 
         <mat-menu #menu2="matMenu">
-            <mat-list class="list-nav"> 
+            <mat-list class="list-nav">
                 <mat-list-item class="list-item" *ngFor="let source of mSources" (click)="searchArticles(source.id) ;">
 
                     <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ source.id +'.png)'}"
@@ -35,7 +35,7 @@
             <img mat-card-image class="img-article" src={{article.urlToImage}} alt="">
             <mat-card-content class="article-discription">
                 <p>
-                    {{article.description}}
+                    {{article.description}}..
                 </p>
             </mat-card-content>
             <mat-card-actions class="action-buttons">
