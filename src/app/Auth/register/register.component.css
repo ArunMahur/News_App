@@ -34,6 +34,7 @@ mat-radio-group mat-radio-group {
 }
 .container{
   background-image: url("../register/image/registerImage.jpg");
+  width: 100%;
   height: 80vh;
 
 }
