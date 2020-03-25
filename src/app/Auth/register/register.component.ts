@@ -3,6 +3,10 @@ import { FormsService } from '../../forms.service';
 import { Router } from '@angular/router';
 import { CountriesService } from '../../countries.service';
 import * as $ from 'jquery';
+import { ServiceService } from '../../service.service';
+import { FormGroup } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-register',
@@ -11,20 +15,32 @@ import * as $ from 'jquery';
 })
 export class RegisterComponent implements OnInit {
 
+  firstName: any;
+  lastName: any;
+  email: any;
+  contactNo: any;
+  gender: any;
+  country: any;
+  dob: any;
+  password: any;
+
+  countries = [];
+
   disabledAgreement: boolean = true;
   changeCheck(event) {
     this.disabledAgreement = !event.checked;
   }
 
-  countries = [];
+
   getToday(): string {
     return new Date().toISOString().split('T')[0]
  }
 
-  constructor(public service : FormsService, private router : Router, private country: CountriesService ) { }
+  // tslint:disable-next-line: max-line-length
+  constructor(public service: FormsService, private router: Router, private countryService: CountriesService, private services: ServiceService ) { }
 
   ngOnInit() {
-    this.country.getCountries().subscribe(val => {
+    this.countryService.getCountries().subscribe(val => {
      for (let value in val){
         this.countries.push(val[value].name);
 }
@@ -41,8 +57,11 @@ export class RegisterComponent implements OnInit {
 
   }
   onSubmit() {
-    this.router.navigate(['/home']);
+    // tslint:disable-next-line: max-line-length
+   if ( this.services.sendPostRequestForRegister(this.firstName, this.lastName, this.email, this.contactNo, this.gender, this.country, this.dob, this.password)) {
+      this.router.navigate(['/home']);
+    } else {
+      console.log('Error');
+    }
   }
-
-
 }

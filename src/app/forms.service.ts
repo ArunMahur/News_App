@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl,Validators } from '@angular/forms';
-
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ServiceService } from './service.service';
 @Injectable({
   providedIn: 'root'
 })
 export class FormsService {
 
-  constructor() { }
+  constructor( private services: ServiceService) { }
 
   form: FormGroup = new FormGroup({
       $key:new FormControl(null),
@@ -29,7 +29,7 @@ export class FormsService {
       lastName: '',
       email: '',
       contactNo: '',
-      gender: '1',
+      gender: '',
       country: 0,
       dob: '',
       password:'',

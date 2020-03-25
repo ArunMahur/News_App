@@ -1,0 +1,96 @@
+const express = require("express");
+const server = express();
+
+const body_parser = require("body-parser");
+const cors = require('cors');
+
+// parse JSON (application/json content-type)
+server.use(body_parser.json());
+server.use(cors({ origin: 'http://localhost:4200' }));
+
+const port = 4000;
+
+// << db setup >>
+const db = require("./db");
+const dbName = "LoginAndRegistration&savedNews";
+const collectionName = "RegAndLog";
+const collectionNameForSaved = "SavedNews";
+
+// << db init >>
+
+server.listen(port, () => {
+    console.log(`Server listening at ${port}`);
+});
+
+// << db init >>
+db.initialize(dbName, collectionName, function(dbCollection) { // successCallback
+  // get all items
+  dbCollection.find().toArray(function(err, result) {
+      if (err) throw err;
+        console.log(result);
+  });
+
+  server.get("/items/:email/:password", (request, response) => {     //get one throough id in mongo  //pic id from terminal  //i'll show you
+    const email = request.params.email;
+    const pass = request.params.password;
+
+    dbCollection.findOne({ emailid : email , password : pass }, (error, result) => {
+        if (error) throw error;
+        // return item
+        response.json(result);
+        });
+    });
+    server.post("/items", (request, response) => {      //this creates for mongodb
+      const item = request.body;
+
+      dbCollection.insertOne(item, (error, result) => { // callback of insertOne
+          if (error) throw error;
+          // return updated list
+          dbCollection.find().toArray((_error, _result) => { // callback of find
+              if (_error) throw _error;
+              response.json(_result);
+              });
+            });
+        });
+
+
+}, function(err) { // failureCallback
+  throw (err);
+});
+
+db.initialize(dbName, collectionNameForSaved, function(dbCollection) { // successCallback
+  // get all items
+  dbCollection.find().toArray(function(err, result) {
+      if (err) throw err;
+        console.log(result);
+  });
+
+  server.get("/item/:emailid", (request, response) => {   //get all urls...
+    // return updated list
+    const email = request.params.emailid;
+
+    dbCollection.find({ emailid: email }).toArray((error, result) => {
+        if (error) throw error;
+        response.json(result);
+        });
+    });
+
+    server.post("/urls/:emailid/:url", (request, response) => {   //post the url saved
+      // return updated list
+      const email = request.params.emailid;
+      const url = request.params.url;
+
+      dbCollection.insertOne({emailid: email, url: url}, (error, result) => { // callback of insertOne
+        if (error) throw error;
+        // return updated list
+        dbCollection.find().toArray((_error, _result) => { // callback of find
+            if (_error) throw _error;
+            response.json(_result);
+            });
+          });
+      });
+
+}, function(err) { // failureCallback
+  throw (err);
+});
+
