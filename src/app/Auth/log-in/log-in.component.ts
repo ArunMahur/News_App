@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 // import {MatDialog} from '@angular/material';
 import { ServiceService } from '../../service.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { browser } from 'protractor';
 
 @Component({
   selector: 'app-log-in',
@@ -15,6 +16,7 @@ export class LogInComponent implements OnInit {
   constructor(private router: Router, private services: ServiceService) { }
   email: string;
   password: string;
+  object: any;
   ngOnInit() {
 
     this.loginform = new FormGroup({
@@ -29,20 +31,19 @@ export class LogInComponent implements OnInit {
     this.services.recieveGetRequestForLogin(this.loginform.value.email, this.loginform.value.password)
                          .subscribe(result => {
                            response = result;
-                           console.log(' trefr', result);
-                           console.log('s >>>>>>', response);
-                         });
+                           this.object = result;
+                           console.log('>>>', this.object);
+                           if (this.object === null || this.object === undefined) {
+                            this.router.navigate(['/signup']);
+                            window.alert('Wrong Credentials');
+
+                          } else {
+                            console.log('kalks', response);
+                            this.router.navigate(['/home']);
+                          }
+    });
 
 
-
-       console.log('kk >>>>>>', response);
-    if (response != null) {
-      console.log('kalks', response);
-      this.router.navigate(['/home']);
-    } else {
-      this.router.navigate(['/signup']);
-      window.alert('Wrong Credentials');
-    }
     // if (this.email == 'arun@gmail.com' && this.password == 'Pass@1234') {
     //   this.router.navigate(["/home"]);
     // } else {

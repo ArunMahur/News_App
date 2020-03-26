@@ -39,12 +39,14 @@ export class HomeComponent implements OnInit {
 
 
   saveButton() {
+    console.log(document.getElementById('myAnchor'));
+    const link = document.getElementById('myAnchor');
+    console.log(link, '?>>>');
+    const url = document.getElementById('myAnchor').getAttribute('href');
 
-    (this.services.saveUrlsForOneUser(this.email , this.uri)); {
-      console.log('kr', this.email, this.uri);
-      this.router.navigate(['/savedNews']);
-    }
-
-
+    const user = this.services.current;
+    console.log(url, 'tfetf', user);
+    this.services.saveUrlsForOneUser( user, url);
+    window.alert('News is saved');
   }
 }

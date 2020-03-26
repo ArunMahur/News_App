@@ -9,7 +9,7 @@ export class ServiceService {
   url = 'http://localhost:4000/items';
   url2 = 'http://localhost:4000/item';
   urls = 'http://localhost:4000/urls';
-
+  current: string;
   constructor( private http: HttpClient ) {}
 
   // tslint:disable-next-line: max-line-length
@@ -36,7 +36,7 @@ export class ServiceService {
   recieveGetRequestForLogin(email: any, password: any) {      //use condition that if this returns a data then its good but if null then false login
     const headers = new HttpHeaders()
     .set('content-type', 'application/json');
-console.log('kk',email, '>>>?',password);
+
     return this.http
     .get(this.url + `/${email}/${password}`, { headers })
     .pipe(map(res => res));
@@ -57,8 +57,13 @@ console.log('kk',email, '>>>?',password);
     const headers = new HttpHeaders()
     .set('content-type', 'application/json');
 
+    const body = {
+      emailid: `${email}`,
+      url: `${uri}`,
+    };
+
     return this.http
-    .post(this.urls + `/${email}/${uri}`, { headers })
+    .post(this.urls, body , { headers })
     .subscribe(res => res);
   }
 

@@ -31,11 +31,10 @@ db.initialize(dbName, collectionName, function(dbCollection) { // successCallbac
   });
 
   server.get("/items/:email/:password", (request, response) => {     //get one throough id in mongo  //pic id from terminal  //i'll show you
-    const email = request.params.email;
-    const pass = request.params.password;
+    const emailid = request.params.email;
+    const passid = request.params.password;
 
-    console.log('er',email,pass);
-    dbCollection.find({ email : email , password : pass }, (error, result) => {
+    dbCollection.findOne({ email : emailid , password : passid }, (error, result) => {
         if (error) throw error;
         // return item
         response.json(result);
@@ -77,12 +76,9 @@ db.initialize(dbName, collectionNameForSaved, function(dbCollection) { // succes
         });
     });
 
-    server.post("/urls/:emailid/:url", (request, response) => {   //post the url saved
-      // return updated list
-      const email = request.params.emailid;
-      const url = request.params.url;
-
-      dbCollection.insertOne({emailid: email, url: url}, (error, result) => { // callback of insertOne
+    server.post("/urls", (request, response) => {   //post the url saved
+      const item = request.body;
+      dbCollection.insertOne( item, (error, result) => { // callback of insertOne
         if (error) throw error;
         // return updated list
         dbCollection.find().toArray((_error, _result) => { // callback of find

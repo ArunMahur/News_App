@@ -57,8 +57,10 @@ export class RegisterComponent implements OnInit {
 
   }
   onSubmit() {
+
     // tslint:disable-next-line: max-line-length
    if ( this.services.sendPostRequestForRegister(this.service.form.controls.firstName.value, this.service.form.controls.lastName.value, this.service.form.controls.email.value, this.service.form.controls.contactNo.value, this.service.form.controls.gender.value, this.service.form.controls.country.value, this.service.form.controls.dob.value, this.service.form.controls.password.value)) {
+    this.services.current = this.service.form.controls.email.value;
       this.router.navigate(['/home']);
     } else {
       console.log('Error');
