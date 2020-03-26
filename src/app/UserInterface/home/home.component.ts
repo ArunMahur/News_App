@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsApiService } from '../../news-api.service';
 import { MatTable } from '@angular/material';
+import { ServiceService } from 'src/app/service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +10,15 @@ import { MatTable } from '@angular/material';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  email: string;
+  uri: string;
 
   mArticles: Array<any>;
   mSources: Array<any>;
   sports: Array<any>;
   india: Array<any>;
 
-  constructor(private newsapi: NewsApiService){
+  constructor(private newsapi: NewsApiService, private services: ServiceService, private router: Router){
     console.log('app component constructor called');
 
   }
@@ -29,9 +33,18 @@ export class HomeComponent implements OnInit {
     }
 
   searchArticles(source){
-    console.log('selected source is: '+source);
+    console.log('selected source is: ' + source);
     this.newsapi.getArticlesByID(source).subscribe(data => this.mArticles = data['articles']);
   }
 
 
+  saveButton() {
+
+    (this.services.saveUrlsForOneUser(this.email , this.uri)); {
+      console.log('kr', this.email, this.uri);
+      this.router.navigate(['/savedNews']);
+    }
+
+
+  }
 }

@@ -8,6 +8,7 @@ import { ArticleComponent } from './UserInterface/article/article.component';
 import { HomeComponent } from './UserInterface/home/home.component';
 import { SportsComponent } from './UserInterface/sports/sports.component';
 import { WheatherComponent } from './UserInterface/wheather/wheather.component'
+import { SavedNewsComponent } from './UserInterface/saved-news/saved-news.component';
 
 const routes: Routes = [
   { path : '' , component : DashboardComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path : 'article', component: ArticleComponent},
   { path : 'home', component: HomeComponent},
   { path : 'sports', component: SportsComponent},
-  { path : 'wheather', component: WheatherComponent}
+  { path : 'wheather', component: WheatherComponent},
+  { path: 'savedNews', component: SavedNewsComponent}
 
 ];
 

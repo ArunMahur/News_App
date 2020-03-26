@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class ServiceService {
   constructor( private http: HttpClient ) {}
 
   // tslint:disable-next-line: max-line-length
-  sendPostRequestForRegister(firstName: any, lastName: any, email: any, contactNo: any, gender: any, dob: any, country: any,  password: any) {
+  sendPostRequestForRegister(firstName: any, lastName: any, email: any, contactNo: any, gender: any, country: any, dob: any, password: any) {
     const headers = new HttpHeaders()
     .set('content-type', 'application/json');
 
@@ -35,10 +36,11 @@ export class ServiceService {
   recieveGetRequestForLogin(email: any, password: any) {      //use condition that if this returns a data then its good but if null then false login
     const headers = new HttpHeaders()
     .set('content-type', 'application/json');
-
+console.log('kk',email, '>>>?',password);
     return this.http
     .get(this.url + `/${email}/${password}`, { headers })
-    .subscribe(res => res);
+    .pipe(map(res => res));
+    // .subscribe(res => res);
   }
 
   recieveUrlsForOneUser( email: any) {
@@ -47,7 +49,8 @@ export class ServiceService {
 
     return this.http
     .get(this.url2 + `/${email}`, { headers })
-    .subscribe(res => res);
+    // .subscribe(res => res);
+    .pipe(map(res => res ));
   }
 
   saveUrlsForOneUser( email: any, uri: any) {

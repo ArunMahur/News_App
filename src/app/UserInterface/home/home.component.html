@@ -1,12 +1,12 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-       
+
         <span>NewsApp </span>
         <span class="example-spacer"></span>
         <!-- <button mat-menu-item routerLink="/signup">SignOut</button> -->
         <a mat-raised-button routerLink="." class="nav-button">HOME</a>
         <a mat-raised-button routerLink="/sports" class="nav-button">SPORTS</a>
-        <a mat-raised-button routerLink="." class="nav-button">SAVED NEWS</a>
+        <a mat-raised-button routerLink="/savedNews" class="nav-button">SAVED NEWS</a>
         <a mat-raised-button routerLink="/article" class="nav-button"> ARTICLE</a>
         <a mat-raised-button routerLink="/wheather" class="nav-button">WHEATHER</a>
         <a mat-raised-button  routerLink="/dashboard" class="nav-button">LOGOUT</a>
@@ -30,7 +30,7 @@
             </p>
         </mat-card-content>
         <mat-card-actions class="action-buttons">
-          <button mat-button color="primary">
+          <button mat-button color="primary" (click)="saveButton()">
             <mat-icon>save</mat-icon>Save
           </button>
           <button mat-button color="primary">
@@ -63,7 +63,7 @@
               </p>
           </mat-card-content>
           <mat-card-actions class="action-buttons">
-            <button mat-button color="primary">
+            <button mat-button color="primary" (click)="saveButton()">
               <mat-icon>save</mat-icon>Save
             </button>
             <button mat-button color="primary">
@@ -95,7 +95,7 @@
               </p>
           </mat-card-content>
           <mat-card-actions class="action-buttons">
-            <button mat-button color="primary">
+            <button mat-button color="primary" (click)="saveButton()">
               <mat-icon>save</mat-icon>Save
             </button>
             <button mat-button color="primary">

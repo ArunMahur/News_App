@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { CountriesService } from '../../countries.service';
 import * as $ from 'jquery';
 import { ServiceService } from '../../service.service';
-import { FormGroup } from '@angular/forms';
+
 
 
 
@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
   }
   onSubmit() {
     // tslint:disable-next-line: max-line-length
-   if ( this.services.sendPostRequestForRegister(this.firstName, this.lastName, this.email, this.contactNo, this.gender, this.country, this.dob, this.password)) {
+   if ( this.services.sendPostRequestForRegister(this.service.form.controls.firstName.value, this.service.form.controls.lastName.value, this.service.form.controls.email.value, this.service.form.controls.contactNo.value, this.service.form.controls.gender.value, this.service.form.controls.country.value, this.service.form.controls.dob.value, this.service.form.controls.password.value)) {
       this.router.navigate(['/home']);
     } else {
       console.log('Error');

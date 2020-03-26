@@ -34,10 +34,12 @@ db.initialize(dbName, collectionName, function(dbCollection) { // successCallbac
     const email = request.params.email;
     const pass = request.params.password;
 
-    dbCollection.findOne({ emailid : email , password : pass }, (error, result) => {
+    console.log('er',email,pass);
+    dbCollection.find({ email : email , password : pass }, (error, result) => {
         if (error) throw error;
         // return item
         response.json(result);
+        console.log('vlaues',JSON.stringify( result));
         });
     });
     server.post("/items", (request, response) => {      //this creates for mongodb

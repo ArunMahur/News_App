@@ -36,6 +36,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './UserInterface/home/home.component';
 import { SportsComponent } from './UserInterface/sports/sports.component';
 import { WheatherComponent } from './UserInterface/wheather/wheather.component';
+import { SavedNewsComponent } from './UserInterface/saved-news/saved-news.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { WheatherComponent } from './UserInterface/wheather/wheather.component';
     ArticleComponent,
     HomeComponent,
     SportsComponent,
-    WheatherComponent
+    WheatherComponent,
+    SavedNewsComponent
   ],
   imports: [
     MatTabsModule,

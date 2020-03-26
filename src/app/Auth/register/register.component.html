@@ -20,12 +20,12 @@ fxLayout="row"
                     <mat-error *ngIf="service.form.controls['lastName'].errors?.pattern">Enter valid Name</mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <input formControlName="email" matInput placeholder="E-Mail ID*" type="text">
+                    <input formControlName="email" matInput placeholder="E-Mail ID*" >
                     <mat-error *ngIf="service.form.controls['email'].errors?.required">This field is mandatory.</mat-error>
                     <mat-error *ngIf="service.form.controls['email'].errors?.pattern">Invalid Email Address</mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <input formControlName="contactNo" matInput placeholder="Contact No.*" type="text">
+                    <input formControlName="contactNo" matInput placeholder="Contact No.*" >
                     <mat-error *ngIf="service.form.controls['contactNo'].errors?.required">This field is mandatory.</mat-error>
                     <mat-error *ngIf="service.form.controls['contactNo'].errors?.pattern">Invalid Mobile Number</mat-error>
                 </mat-form-field>
