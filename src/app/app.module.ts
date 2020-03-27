@@ -21,6 +21,7 @@ import { HttpClientJsonpModule } from '@angular/common/http';
 import { NewsApiService } from './news-api.service';
 import { MatListModule } from '@angular/material/list';
 import { ApixuService } from "./apixu.service";
+import {  MatPaginatorModule, MatSortModule, MatTableModule } from '@angular/material';
 
 import { AppRoutingModule,RoutingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -74,6 +75,9 @@ import { SavedNewsComponent } from './UserInterface/saved-news/saved-news.compon
     MatProgressSpinnerModule,
     MatMenuModule,
     HttpClientModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
     HttpClientJsonpModule,
     MatListModule,
     FlexLayoutModule

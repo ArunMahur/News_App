@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SavedNewsComponent implements OnInit {
 
+  displayedColumns: string[] = ['position', 'url', 'action'];
+
   constructor() { }
 
   ngOnInit() {
