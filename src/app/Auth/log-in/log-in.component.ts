@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import { ServiceService } from '../../service.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { browser } from 'protractor';
+import { FormsService } from 'src/app/forms.service';
 
 @Component({
   selector: 'app-log-in',
@@ -13,7 +14,7 @@ import { browser } from 'protractor';
 export class LogInComponent implements OnInit {
   loginform: FormGroup;
 
-  constructor(private router: Router, private services: ServiceService) { }
+  constructor(private router: Router, private services: ServiceService , public service: FormsService) { }
   email: string;
   password: string;
   object: any;
@@ -38,17 +39,11 @@ export class LogInComponent implements OnInit {
                             window.alert('Wrong Credentials');
 
                           } else {
-                            console.log('kalks', response);
+                            this.services.current = this.loginform.value.email;
                             this.router.navigate(['/home']);
                           }
     });
 
-
-    // if (this.email == 'arun@gmail.com' && this.password == 'Pass@1234') {
-    //   this.router.navigate(["/home"]);
-    // } else {
-    //   alert("Invalid credentials");
-    // }
   }
-  }
+}
 
